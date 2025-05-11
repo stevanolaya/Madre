@@ -47,35 +47,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     requestAnimationFrame(() => {
-        const titleRect = title.getBoundingClientRect();
-        const titleTop = titleRect.top;
-
         const positions = letters.map(span => {
-            const rect = span.getBoundingClientRect();
-            const x = rect.left + rect.width / 50 + window.scrollX;
-            const y = rect.top + rect.height / 0.45 + window.scrollY;
+        const rect = span.getBoundingClientRect();
+        const x = rect.left + rect.width / 50 + window.scrollX;
+        const y = rect.top + rect.height / 0.45 + window.scrollY;
             return { x, y, span };
         });
 
         const shuffled = [...positions].sort(() => Math.random() - 0.5);
         let i = 0;
 
-        function launchNext() {
-            if (i >= shuffled.length) return;
+    function launchNext() {
+        if (i >= shuffled.length) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            setTimeout(() => {
+                canvas.style.opacity = '0';
+            }, 1000); // puedes ajustar el tiempo si quieres
+            return;
+    }
 
-            const { x, y, span } = shuffled[i];
-            animateRocket(x, y, () => {
-                fireworkExplosion(x, y, () => {
-                    span.style.opacity = 1;
-                    span.classList.add('boom');
-                    i++;
-                    setTimeout(launchNext, 200);
-                });
-            });
-        }
-
-        launchNext();
+        const { x, y, span } = shuffled[i];
+        animateRocket(x, y, () => {
+            fireworkExplosion(x, y, () => {
+                span.style.opacity = 1;
+                span.classList.add('boom');
+                i++;
+                setTimeout(launchNext, 200);
+        });
     });
+}
+        launchNext();
+});
 
     // === ANIMACIÓN DEL COHETE HACIA ARRIBA ===
     function animateRocket(targetX, targetY, callback) {
