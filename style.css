@@ -1,7 +1,7 @@
 /* === ESTILOS GENERALES === */
 body {
   margin: 0;
-  background: linear-gradient(180deg, #ffe4e1 0%, #ffc0cb 50%, #ffb6c1 50%);
+  background: linear-gradient(180deg, #ffe4e1 45%, #ffc0cb 50%, #ffb6c1 75%, #ff69b4 100%);
   color: white;
   font-family: 'Raleway', sans-serif;
   overflow-x: hidden;
@@ -149,7 +149,7 @@ h2 {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 20px;
   animation: fadeIn 2s ease-out;
-  color: #787474;
+  color: #4e4a4a;
 }
 
 /* === PIE DE PÁGINA === */
