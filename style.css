@@ -1,0 +1,280 @@
+/* === ESTILOS GENERALES === */
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #ffe4e1 0%, #ffc0cb 50%, #ffb6c1 50%);
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  overflow-x: hidden;
+}
+
+/* === ENCABEZADO PRINCIPAL === */
+header {
+  background: rgba(255, 182, 193, 0.1);
+  backdrop-filter: blur(4px);
+  text-align: center;
+  padding: 40px 20px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 48px;
+  font-weight: bold;
+  min-height: 60px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  text-align: center;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  font-size: 3em;
+  color: white;
+  margin-top: 60px;
+  font-family: 'Pacifico', cursive;
+  animation: fadeIn 2s ease-out;
+}
+
+/* === GALERÍA PRINCIPAL === */
+#photos {
+  padding: 40px 20px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, opacity 0.8s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.gallery img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* === NUEVA SECCIÓN: CARTA CENTRADA CON FOTOS A LOS LADOS === */
+#letter-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+#letter {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  animation: fadeIn 2s ease-out;
+  text-align: center;
+  color: #f0f0f0;
+}
+
+.side-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  min-width: 150px;
+  max-width: 200px;
+}
+
+.side-gallery img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease, opacity 0.8s ease;
+}
+
+.side-gallery img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === EFECTO DE MÁQUINA DE ESCRIBIR === */
+.typewriter {
+  font-family: monospace;
+  white-space: pre-wrap;
+  overflow: hidden;
+  border-right: .15em solid white;
+  margin: 0 auto;
+  letter-spacing: 0.05em;
+  animation:
+    typing 4s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white; }
+}
+
+/* === MENSAJE CENTRAL === */
+#message {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 40px 30px 80px;
+  line-height: 1.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  animation: fadeIn 2s ease-out;
+}
+
+/* === PIE DE PÁGINA === */
+footer {
+  background: rgba(255, 182, 193, 0.1);
+  backdrop-filter: blur(4px);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+  width: 100%;
+}
+
+/* === FUEGOS ARTIFICIALES === */
+#fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+}
+
+/* === BOTÓN DE MÚSICA === */
+#music-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 9999;
+  color: white;
+}
+
+/* === MENSAJE EXTRA OCULTO === */
+#extra-message {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#hidden-message {
+  display: none;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  animation: slideIn 1s ease-in-out;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === BOTÓN DE "VER MÁS" === */
+#show-more {
+  background: rgba(255, 182, 193, 0.3);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Raleway', sans-serif;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#show-more:hover {
+  background: rgba(255, 182, 193, 0.5);
+  border-color: rgba(255, 255, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* === RESPONSIVE PARA MÓVILES === */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery img {
+    width: 90%;
+    height: auto;
+  }
+
+  #letter-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .side-gallery {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .side-gallery img {
+    width: 45%;
+    height: auto;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  #message {
+    font-size: 1rem;
+  }
+}
